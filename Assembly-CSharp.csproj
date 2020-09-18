@@ -62,11 +62,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Template\Scripts\Button\InputButton.cs" />
+    <Compile Include="Assets\Template\Scripts\Button\Joystick.cs" />
+    <Compile Include="Assets\Template\Scripts\Button\StartButton.cs" />
     <Compile Include="Assets\Template\Scripts\GameEnding.cs" />
-    <Compile Include="Assets\Template\Scripts\Joystick.cs" />
+    <Compile Include="Assets\Template\Scripts\LifeManager.cs" />
     <Compile Include="Assets\Template\Scripts\LightFlicker.cs" />
     <Compile Include="Assets\Template\Scripts\Observer.cs" />
     <Compile Include="Assets\Template\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Template\Scripts\Post.cs" />
+    <Compile Include="Assets\Template\Scripts\Score.cs" />
+    <Compile Include="Assets\Template\Scripts\Timer.cs" />
     <Compile Include="Assets\Template\Scripts\WayPointPatrol.cs" />
     <Compile Include="Assets\Template\TutorialInfo\Scripts\Readme.cs" />
     <None Include="Assets\Template\Shaders\SpookyStandardShader.shader" />

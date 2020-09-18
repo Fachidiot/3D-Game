@@ -18,6 +18,8 @@ public class GameEnding : MonoBehaviour
     private CanvasGroup m_CaughtBackgroundImageCanvasGroup;
     [SerializeField]
     private float m_fDisplayImageDuration = 1f;
+    [SerializeField]
+    private Score m_ScoreBoard;
     
     float m_fTimer;
     bool m_bHasAudioPlayed = false;
@@ -41,11 +43,13 @@ public class GameEnding : MonoBehaviour
     {
         if (m_bIsPlayerAtExit)
         {
+            Timer.End = true;
             EndLevel(m_ExitBackgroundImageCanvasGroup, false, m_ExitAudio);
         }
 
         else if(m_bIsPlayerCaught)
         {
+            Timer.Reset = true;
             EndLevel(m_CaughtBackgroundImageCanvasGroup, true, m_CaughtAudio);
         }
     }
@@ -60,18 +64,27 @@ public class GameEnding : MonoBehaviour
 
         m_fTimer += Time.deltaTime;
 
-        m_ExitBackgroundImageCanvasGroup.alpha = m_fTimer / m_fFadeDuration;
+        imageCanvasGroup.alpha = m_fTimer / m_fFadeDuration;
 
         if(m_fTimer > m_fFadeDuration + m_fDisplayImageDuration)
         {
             if (doRestart)
             {
                 SceneManager.LoadScene(0);
+                Timer.reset();
             }
             else
             {
-                Application.Quit();
+                m_ScoreBoard.SetActive(true);
             }
         }
+    }
+
+    public void reset()
+    {
+        m_bIsPlayerAtExit = false;
+        m_bIsPlayerCaught = false;
+
+        SceneManager.LoadScene(0);
     }
 }

@@ -41,6 +41,12 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         Rect_Joystick.localPosition = m_vValue;
 
         m_fDistance = Vector2.Distance(Rect_Background.position, Rect_Joystick.position) / m_fRadius;
+        Debug.Log(m_fDistance);
+        if (m_fDistance > 0.85)
+            Post.Boost = true;
+        else
+            Post.Boost = false;
+
         m_vValue = m_vValue.normalized;
         m_Moveposition = new Vector3(m_vValue.x * m_fMoveSpeed * m_fDistance * Time.deltaTime, 0f, m_vValue.y * m_fMoveSpeed * m_fDistance * Time.deltaTime);
 
@@ -60,6 +66,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         m_PlayerMovement.Move(m_bIsMove);
         Rect_Joystick.localPosition = Vector3.zero;
         m_Moveposition = Vector3.zero;
+        m_fDistance = 0.0f;
+        Post.Boost = false;
     }
-
 }
