@@ -14,7 +14,7 @@ public class StartButton : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         ScoreObj.SetActive(false);
-
+        Timer.reset();
         EndingObj.reset();
     }
 }

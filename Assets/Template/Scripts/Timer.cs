@@ -114,7 +114,10 @@ public class Timer : MonoBehaviour
         {
             if (m_fTime < ScoreArr[i].m_fScore)
             {
-
+                return true;
+            }
+            else if(ScoreArr[i].m_fScore <= 0f)
+            {
                 return true;
             }
         }
@@ -136,6 +139,12 @@ public class Timer : MonoBehaviour
                 ScoreArr[i] = CheckData;
                 CheckData = TempScore;
 
+            }
+            else if (ScoreArr[i].m_fScore <= 0f)
+            {
+                ScoreData TempScore = ScoreArr[i];
+                ScoreArr[i] = CheckData;
+                CheckData = TempScore;
             }
         }
 
