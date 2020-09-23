@@ -72,9 +72,9 @@
     <Compile Include="Assets\Template\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Template\Scripts\Post.cs" />
     <Compile Include="Assets\Template\Scripts\Score.cs" />
+    <Compile Include="Assets\Template\Scripts\SetPosition.cs" />
     <Compile Include="Assets\Template\Scripts\Timer.cs" />
     <Compile Include="Assets\Template\Scripts\Way\WayPoint.cs" />
-    <Compile Include="Assets\Template\Scripts\Way\WayPointManager.cs" />
     <Compile Include="Assets\Template\Scripts\Way\WayPointPatrol.cs" />
     <Compile Include="Assets\Template\TutorialInfo\Scripts\Readme.cs" />
     <None Include="Assets\Template\Shaders\SpookyStandardShader.shader" />
@@ -83,9 +83,6 @@
     <None Include="Assets\Template\Shaders\ToonShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
@@ -102,23 +99,26 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>C:/Users/김학동/repos/3D-Game/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

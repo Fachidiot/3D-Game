@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
-    public Transform[] m_WaypointsArr;
-    bool m_bUsed = false;
-    public bool Use { get { return m_bUsed; } set { m_bUsed = value; } }
+    public List<Transform> TransformList;
 
-    public bool Check()
+    private bool m_bIsUse = false;
+
+    public bool IsUse()
     {
-        if (m_bUsed)
+        if (m_bIsUse)
             return true;
         else
             return false;
     }
 
-    public Transform[] Get()
+    public Vector3 GetPosition(int index)
     {
-        return m_WaypointsArr;
+        return TransformList[index].position;
     }
 
-    public int Length()
+    public int Count()
     {
-        return m_WaypointsArr.Length;
+        return TransformList.Count;
     }
 }

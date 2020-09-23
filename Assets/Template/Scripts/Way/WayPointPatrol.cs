@@ -5,40 +5,57 @@ using UnityEngine.AI;
 
 public class WayPointPatrol : MonoBehaviour
 {
-    [SerializeField]
-    private NavMeshAgent m_NavMeshAgent;
-    [SerializeField]
-    private WayPointManager manager;
+    public NavMeshAgent navMeshAgent;
+    public List<WayPoint> waypoints;
 
-    private WayPoint m_Waypoint;
-    int m_iCurrentWaypointIndex;
-    int m_iMaxIndex;
+    private int m_iIndex = 0;
+    private int m_iCount = 0;
+    private int m_CurrentWaypointIndex;
 
-    private void Start()
+    void Start()
     {
-        SetStart();
+        m_iIndex = RandomIndex();
+        SetDistance();
     }
 
-    void SetStart()
+    void Update()
     {
-        m_Waypoint = manager.GetPoint();
-        m_iMaxIndex = m_Waypoint.Length();
-        m_Waypoint.Use = true;
-        m_NavMeshAgent.SetDestination(m_Waypoint.Get()[0].position);
+        CheckDistance();
     }
 
-    private void Update()
+    int RandomIndex()
     {
-        if (m_NavMeshAgent.remainingDistance < m_NavMeshAgent.stoppingDistance)
+        m_iCount = 0;
+        int temp = 0;
+        bool m_bIsEnd = false;
+        while (!m_bIsEnd)
         {
-            m_iMaxIndex--;
-            m_iCurrentWaypointIndex = (m_iCurrentWaypointIndex + 1) % m_Waypoint.Get().Length;
-            m_NavMeshAgent.SetDestination(m_Waypoint.Get()[m_iCurrentWaypointIndex].position);
-            if(m_iMaxIndex == m_iCurrentWaypointIndex)
-            {
-                m_Waypoint.Use = false;
-                SetStart();
-            }
+            temp = Random.Range(0, waypoints.Count);
+            if (!waypoints[temp].IsUse())
+                m_bIsEnd = true;
+        }
+
+        return temp;
+    }
+
+    void SetDistance()
+    {
+        navMeshAgent.SetDestination(waypoints[m_iIndex].GetPosition(m_CurrentWaypointIndex));
+    }
+
+    void CheckDistance()
+    {
+        if (m_iCount >= waypoints[m_iIndex].Count() - 1)
+        {
+            m_iIndex = RandomIndex();
+            CheckDistance();
+            return;
+        }
+        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+        {
+            m_iCount++;
+            m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints[m_iIndex].Count();
+            navMeshAgent.SetDestination(waypoints[m_iIndex].GetPosition(m_CurrentWaypointIndex));
         }
     }
 }
