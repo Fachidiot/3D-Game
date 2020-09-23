@@ -6,20 +6,13 @@ using UnityEngine.EventSystems;
 
 public class InputButton : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField]
-    GameObject InputObj = null;
-    [SerializeField]
-    Text NewName = null;
+    public GameObject InputObj;
+    public Text NewName;
 
     public void OnPointerClick(PointerEventData eventData)
     {
         Timer.ScoreInput(NewName.text);
 
         InputObj.SetActive(false);
-    }
-
-    void Update()
-    {
-        
     }
 }

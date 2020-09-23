@@ -5,34 +5,20 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class Post : MonoBehaviour
 {
-    [SerializeField]
-    PostProcessVolume m_Volume;
-    ChromaticAberration m_Chromatic;
+    public PostProcessVolume Volume;
+
+    private ChromaticAberration m_Chromatic;
 
     static bool m_bIsBoost;
-    public static bool Boost
-    {
-        get
-        {
-            return m_bIsBoost;
-        }
-        set
-        {
-            m_bIsBoost = value;
-        }
-    }
-
-    private void Start()
-    {
-    }
+    public static bool Boost { get { return m_bIsBoost; } set { m_bIsBoost = value; } }
 
     void Update()
     {
         if (m_bIsBoost)
         {
-            m_Volume.enabled = true;
+            Volume.enabled = true;
         }
         else
-            m_Volume.enabled = false;
+            Volume.enabled = false;
     }
 }

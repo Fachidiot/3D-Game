@@ -5,30 +5,23 @@ using UnityEngine;
 
 public class GameEnding : MonoBehaviour
 {
-    public AudioSource m_ExitAudio;
-    public AudioSource m_CaughtAudio;
-
-    [SerializeField]
-    private float m_fFadeDuration = 1f;
-    [SerializeField]
-    private GameObject m_player;
-    [SerializeField]
-    private CanvasGroup m_ExitBackgroundImageCanvasGroup;
-    [SerializeField]
-    private CanvasGroup m_CaughtBackgroundImageCanvasGroup;
-    [SerializeField]
-    private float m_fDisplayImageDuration = 1f;
-    [SerializeField]
-    private Score m_ScoreBoard;
+    public AudioSource ExitAudio;
+    public AudioSource CaughtAudio;
+    public float f_FadeDuration;
+    public GameObject Player;
+    public CanvasGroup ExitBackgroundImageCanvasGroup;
+    public CanvasGroup CaughtBackgroundImageCanvasGroup;
+    public float f_DisplayImageDuration;
+    public Score ScoreBoard;
     
-    float m_fTimer;
-    bool m_bHasAudioPlayed = false;
-    bool m_bIsPlayerAtExit = false;
-    bool m_bIsPlayerCaught = false;
+    private float m_fTimer;
+    private bool m_bHasAudioPlayed = false;
+    private bool m_bIsPlayerAtExit = false;
+    private bool m_bIsPlayerCaught = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == m_player)
+        if(other.gameObject == Player)
         {
             m_bIsPlayerAtExit = true;
         }
@@ -44,13 +37,13 @@ public class GameEnding : MonoBehaviour
         if (m_bIsPlayerAtExit)
         {
             Timer.End = true;
-            EndLevel(m_ExitBackgroundImageCanvasGroup, false, m_ExitAudio);
+            EndLevel(ExitBackgroundImageCanvasGroup, false, ExitAudio);
         }
 
         else if(m_bIsPlayerCaught)
         {
             Timer.Reset = true;
-            EndLevel(m_CaughtBackgroundImageCanvasGroup, true, m_CaughtAudio);
+            EndLevel(CaughtBackgroundImageCanvasGroup, true, CaughtAudio);
         }
     }
 
@@ -64,9 +57,9 @@ public class GameEnding : MonoBehaviour
 
         m_fTimer += Time.deltaTime;
 
-        imageCanvasGroup.alpha = m_fTimer / m_fFadeDuration;
+        imageCanvasGroup.alpha = m_fTimer / f_FadeDuration;
 
-        if(m_fTimer > m_fFadeDuration + m_fDisplayImageDuration)
+        if(m_fTimer > f_FadeDuration + f_DisplayImageDuration)
         {
             if (doRestart)
             {
@@ -75,7 +68,7 @@ public class GameEnding : MonoBehaviour
             }
             else
             {
-                m_ScoreBoard.SetActive(true);
+                ScoreBoard.SetActive(true);
             }
         }
     }

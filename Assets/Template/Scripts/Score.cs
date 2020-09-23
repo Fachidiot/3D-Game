@@ -6,26 +6,14 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     static float m_fTime;
-    public static float time
-    {
-        get
-        {
-            return m_fTime;
-        }
-        set
-        {
-            m_fTime = value;
-        }
-    }
+    public static float time { get { return m_fTime; } set { m_fTime = value; } }
 
-    Text[] ArrText = null;
-
-    [SerializeField]
-    GameObject m_NameInput = null;
+    private Text[] ArrText = null;
+    private GameObject m_NameInput = null;
 
     private void Start()
     {
-        gameObject.active = false;
+        gameObject.SetActive(false);
     }
 
     public void Awake()
@@ -76,6 +64,6 @@ public class Score : MonoBehaviour
 
     public void SetActive(bool active)
     {
-        gameObject.active = active;
+        gameObject.SetActive(active);
     }
 }

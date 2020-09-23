@@ -5,36 +5,15 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public Text Text;
+
     private static float m_fTime;
-    [SerializeField]
-    Text m_Text;
 
     static bool m_bIsEnd;
-    public static bool End
-    {
-        get
-        {
-            return m_bIsEnd;
-        }
-        set
-        {
-            m_bIsEnd = value;
-        }
-    }
+    public static bool End { get { return m_bIsEnd; } set { m_bIsEnd = value; } }
     static bool m_bIsReset;
-    public static bool Reset
-    {
-        get
-        {
-            return m_bIsReset;
-        }
-        set
-        {
-            m_bIsReset = value;
-        }
-    }
+    public static bool Reset { get { return m_bIsReset; } set { m_bIsReset = value; } }
     
-    [SerializeField]
     private static List<ScoreData> m_ScoreArr;
     public static List<ScoreData> ScoreArr { get { return m_ScoreArr; } }
 
@@ -60,8 +39,7 @@ public class Timer : MonoBehaviour
     {
         m_fTime = 0f;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (m_bIsEnd || m_bIsReset)
@@ -77,7 +55,7 @@ public class Timer : MonoBehaviour
         else if (!m_bIsEnd || !m_bIsReset)
         {
             m_fTime += Time.deltaTime;
-            m_Text.text = string.Format("{0:0.#}", m_fTime);
+            Text.text = string.Format("{0:0.#}", m_fTime);
         }
     }
 
