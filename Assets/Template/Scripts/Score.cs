@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    public GameObject NameInput;
     static float m_fTime;
     public static float time { get { return m_fTime; } set { m_fTime = value; } }
 
     private Text[] ArrText = null;
-    private GameObject m_NameInput = null;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
     {
         Timer.ScoreLoad();
 
-        if(m_NameInput == null)
+        if(NameInput == null)
         {
             Debug.LogError("NameInput is Null");
             return;
@@ -28,7 +28,7 @@ public class Score : MonoBehaviour
 
         if(Timer.ScoreCheck())
         {
-            m_NameInput.SetActive(true);
+            NameInput.SetActive(true);
         }
     }
     
